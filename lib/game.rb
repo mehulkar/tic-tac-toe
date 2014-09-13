@@ -9,6 +9,10 @@ class Game
   def play(spot, sign)
     raise StandardError if invalid_move?(sign, spot)
     @moves[spot - 1] = sign
+    puts "Congratulations" if winner
+  end
+
+  def winner
   end
 
 private

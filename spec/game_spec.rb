@@ -40,5 +40,16 @@ describe Game do
     it 'does not allow playing to an invalid spot' do
       expect { @new_game.play(10, "X") }.to raise_error
     end
+
+    it 'congratulates winner if game is over' do
+      player = instance_double("Player")
+      allow(@new_game).to receive(:winner).and_return(player)
+      expect { @new_game.play(5, "X") }.to output(/Congratulations/).to_stdout
+    end
+
+    it 'does not congratulate winner if there is no winner' do
+      allow(@new_game).to receive(:winner).and_return(nil)
+      expect { @new_game.play(5, "X") }.not_to output(/Congratulations/).to_stdout
+    end
   end
 end
