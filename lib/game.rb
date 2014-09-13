@@ -9,7 +9,7 @@ class Game
   end
 
   def play(spot)
-    raise StandardError if invalid_move?(player.sign, spot)
+    raise StandardError if invalid_spot?(spot)
     @moves[spot - 1] = player.sign
     puts "Congratulations" if winner
   end
@@ -17,15 +17,6 @@ class Game
   def winner
   end
 private
-
-  def invalid_move?(sign, spot)
-    invalid_sign?(sign) || invalid_spot?(spot)
-  end
-
-  def invalid_sign?(sign)
-    !["X", "O"].include? sign
-  end
-
   def invalid_spot?(spot)
     spot < 1 || spot > @moves.length
   end
