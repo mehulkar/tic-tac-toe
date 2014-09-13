@@ -41,23 +41,19 @@ describe Game do
       new_game = described_class.new(x_player, o_player)
     end
 
-    it 'allows adding Xs' do
-      expect(new_game.play(1))
-      expect(new_game.moves[0]).to eq "X"
+    it 'adds the first player\'s sign on odd moves' do
+      new_game.play(1)
+      expect(new_game.moves[0]).to eq new_game.first_player.sign
     end
 
-    it 'allows adding Os' do
-      expect(new_game.play(1))
-      expect(new_game.moves[0]).to eq "O"
-    end
-
-    it 'does not allow adding anything other than Xs and Os' do
-      player_with_invalid_move = instance_double("Player", sign: "invalid")
-      expect {new_game.play(1)}.to raise_error
+    it 'adds the second player\'s sign on even moves' do
+      new_game.play(1)
+      new_game.play(5)
+      expect(new_game.moves[4]).to eq new_game.second_player.sign
     end
 
     it 'does not allow playing to an invalid spot' do
-      expect { new_game.play(1) }.to raise_error
+      expect { new_game.play(10) }.to raise_error
     end
 
     it 'congratulates winner if game is over' do
