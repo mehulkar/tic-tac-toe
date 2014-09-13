@@ -57,7 +57,7 @@ describe Game do
     end
 
     it 'congratulates winner if game is over' do
-      allow(new_game).to receive(:winner).and_return(x_player)
+      allow(new_game).to receive(:winner).and_return(new_game.first_player)
       expect { new_game.play(5) }.to output(/Congratulations/).to_stdout
     end
 
