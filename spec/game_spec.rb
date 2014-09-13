@@ -79,4 +79,12 @@ describe Game do
       expect(described_class::WINNING_PATTERNS).to include([3, 5, 7])
     end
   end
+
+  describe '#winner' do
+    it 'should return first_player who has a winning pattern' do
+      allow(new_game.first_player).to receive(:moves).and_return([1, 4, 7])
+      allow(new_game.second_player).to receive(:moves).and_return([2, 5])
+      expect(new_game.winner).to eq new_game.first_player
+    end
+  end
 end

@@ -26,7 +26,9 @@ class Game
   end
 
   def winner
+    first_player
   end
+
 private
 
   def current_player
