@@ -1,12 +1,14 @@
 class Game
-  attr_accessor :moves
+  attr_accessor :moves, :first_player, :second_player
 
-  def initialize
+  def initialize(player1, player2)
     puts "Welcome to Tic Tac Toe!"
     @moves = Array.new(9)
+    @first_player = player1
+    @second_player = player2
   end
 
-  def play(spot, player)
+  def play(spot)
     raise StandardError if invalid_move?(player.sign, spot)
     @moves[spot - 1] = player.sign
     puts "Congratulations" if winner
@@ -14,7 +16,6 @@ class Game
 
   def winner
   end
-
 private
 
   def invalid_move?(sign, spot)
