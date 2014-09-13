@@ -66,4 +66,17 @@ describe Game do
       expect { new_game.play(5) }.not_to output(/Congratulations/).to_stdout
     end
   end
+
+  describe '.winning patterns' do
+    it 'should include all the winning patterns' do
+      expect(described_class::WINNING_PATTERNS).to include([1, 2, 3])
+      expect(described_class::WINNING_PATTERNS).to include([4, 5, 6])
+      expect(described_class::WINNING_PATTERNS).to include([7, 8, 9])
+      expect(described_class::WINNING_PATTERNS).to include([1, 4, 7])
+      expect(described_class::WINNING_PATTERNS).to include([2, 5, 8])
+      expect(described_class::WINNING_PATTERNS).to include([3, 6, 9])
+      expect(described_class::WINNING_PATTERNS).to include([1, 5, 9])
+      expect(described_class::WINNING_PATTERNS).to include([3, 5, 7])
+    end
+  end
 end
