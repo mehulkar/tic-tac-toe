@@ -6,9 +6,9 @@ class Game
     @moves = Array.new(9)
   end
 
-  def play(spot, sign)
-    raise StandardError if invalid_move?(sign, spot)
-    @moves[spot - 1] = sign
+  def play(spot, player)
+    raise StandardError if invalid_move?(player.sign, spot)
+    @moves[spot - 1] = player.sign
     puts "Congratulations" if winner
   end
 
