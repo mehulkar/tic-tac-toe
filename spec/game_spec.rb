@@ -67,7 +67,7 @@ describe Game do
     end
   end
 
-  describe '.winning patterns' do
+  describe '.winning_patterns' do
     it 'should include all the winning patterns' do
       expect(described_class::WINNING_PATTERNS).to include([1, 2, 3])
       expect(described_class::WINNING_PATTERNS).to include([4, 5, 6])
