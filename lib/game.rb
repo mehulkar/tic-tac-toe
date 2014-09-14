@@ -25,13 +25,11 @@ class Game
 private
 
   def current_player
-    to_ret = if @moves.compact.length.even?
-      @first_player
-    else
-      @second_player
-    end
+    even_move? ? @first_player : @second_player
+  end
 
-    return to_ret
+  def even_move?
+    @moves.compact.length.even?
   end
 
   def invalid_spot?(spot)
