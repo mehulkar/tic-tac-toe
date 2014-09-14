@@ -22,11 +22,6 @@ class Game
     raise StandardError if invalid_spot?(spot)
     @moves[spot - 1] = current_player.sign
   end
-
-  def winner
-    first_player
-  end
-
 private
 
   def current_player
