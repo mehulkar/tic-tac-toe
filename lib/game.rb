@@ -13,9 +13,9 @@ class Game
   ]
 
   def initialize(player1, player2)
-    @moves = Array.new(9)
-    @first_player = player1
-    @second_player = player2
+    @moves          = Array.new(9)
+    @first_player   = player1
+    @second_player  = player2
   end
 
   def play(spot)
