@@ -13,7 +13,6 @@ class Game
   ]
 
   def initialize(player1, player2)
-    puts "Welcome to Tic Tac Toe!"
     @moves = Array.new(9)
     @first_player = player1
     @second_player = player2
@@ -22,7 +21,6 @@ class Game
   def play(spot)
     raise StandardError if invalid_spot?(spot)
     @moves[spot - 1] = current_player.sign
-    puts "Congratulations" if winner
   end
 
   def winner

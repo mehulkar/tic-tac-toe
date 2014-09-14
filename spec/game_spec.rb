@@ -10,12 +10,6 @@ describe Game do
     described_class.new(x_player, o_player)
   end
 
-  describe 'initialize' do
-    it 'should print a greeting to console' do
-      expect { described_class.new(x_player, o_player) }.to output(/Welcome/).to_stdout
-    end
-  end
-
   describe '#first_player' do
     it 'returns the first player from game initialize'do
       a_game = described_class.new(x_player, o_player)
@@ -54,16 +48,6 @@ describe Game do
 
     it 'does not allow playing to an invalid spot' do
       expect { new_game.play(10) }.to raise_error
-    end
-
-    it 'congratulates winner if game is over' do
-      allow(new_game).to receive(:winner).and_return(new_game.first_player)
-      expect { new_game.play(5) }.to output(/Congratulations/).to_stdout
-    end
-
-    it 'does not congratulate winner if there is no winner' do
-      allow(new_game).to receive(:winner).and_return(nil)
-      expect { new_game.play(5) }.not_to output(/Congratulations/).to_stdout
     end
   end
 
