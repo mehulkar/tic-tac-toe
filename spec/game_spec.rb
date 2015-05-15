@@ -1,5 +1,4 @@
 require 'spec_helper'
-require File.join(File.dirname(__FILE__), '../lib/game.rb')
 
 describe Game do
 

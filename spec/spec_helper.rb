@@ -1,4 +1,5 @@
 require 'byebug'
+Dir["./lib/*.rb"].each {|file| require file }
 
 RSpec.configure do |config|
   config.filter_run focus: true
